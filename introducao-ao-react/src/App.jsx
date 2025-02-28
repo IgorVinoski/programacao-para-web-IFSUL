@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 import Titulo from './Titulo';
 import Corpo from './Corpo';
-
-
+import Calculo from './Calculo';
+import Exibir from './Exibir';
 
 function App() {
 
@@ -27,7 +27,9 @@ function App() {
 
       <Titulo texto="Usando o componente titulo"/>
         <Corpo mensagemAlerta = {mensagemAlerta} dados={['React', 'Node', 'NPM', 'JSX']} contador={contador}/>
-       
+      <Calculo/>
+
+      <Exibir/>
       </>
   );
 }
