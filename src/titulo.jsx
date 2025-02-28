@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Titulo() {
+function Titulo({texto}) {
     return (
-        <div>
-            <h1>Meu primeiro componente em React</h1>
-        </div>
+        <>
+            <h1>{texto}</h1>
+        </>
     );
 }
 
