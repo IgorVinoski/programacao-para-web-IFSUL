@@ -4,23 +4,23 @@ import { Container, Form, Button, Alert, Card } from "react-bootstrap";
 const IMCCalculator = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [bmi, setBmi] = useState(null);
+  const [imc, setImc] = useState(null);
   const [category, setCategory] = useState("");
 
-  const calculateBMI = () => {
+  const IMC = () => {
     if (!weight || !height) {
-      setBmi(null);
+        setImc(null);
       setCategory("");
       return;
     }
 
     const heightInMeters = height / 100;
-    const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2);
-    setBmi(bmiValue);
+    const valor = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+    setImc(valor);
 
-    if (bmiValue < 18.5) setCategory("Abaixo do peso");
-    else if (bmiValue < 24.9) setCategory("Peso normal");
-    else if (bmiValue < 29.9) setCategory("Sobrepeso");
+    if (valor < 18.5) setCategory("Abaixo do peso");
+    else if (valor < 24.9) setCategory("Peso normal");
+    else if (valor < 29.9) setCategory("Sobrepeso");
     else setCategory("Obesidade");
   };
 
@@ -47,13 +47,13 @@ const IMCCalculator = () => {
               onChange={(e) => setHeight(e.target.value)}
             />
           </Form.Group>
-          <Button variant="primary" onClick={calculateBMI} className="w-100">
+          <Button variant="primary" onClick={IMC} className="w-100">
             Calcular IMC
           </Button>
         </Form>
-        {bmi && (
+        {imc && (
           <Alert className="mt-3" variant={category.includes("Obesidade") ? "danger" : "success"}>
-            Seu IMC é <strong>{bmi}</strong> ({category})
+            Seu IMC é <strong>{imc}</strong> ({category})
           </Alert>
         )}
       </Card>

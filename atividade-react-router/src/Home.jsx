@@ -19,7 +19,6 @@ const Home = () => {
            
           </Link>
         ) : (
-          // Exibe uma mensagem personalizada e o botão para ir ao cálculo do IMC
           <>
             <p className="fs-4 text-primary mt-4">
              clique abaixo e calcule seu IMC!
